@@ -1,7 +1,4 @@
 # pyez_d3
-pyez_d3
-=======
-
 
 Juniper Router Visualization Tools using PYEZ and D3
 
@@ -13,7 +10,7 @@ Usage
 3. 	python manage.py runserver 0.0.0.0:8080
 
 isis visualization
-__________________
+_____
 
-on your web browser visit http://<ip>:8080/isis_d3/
+on your web browser visit http://ip:8080/isis_d3/
 
