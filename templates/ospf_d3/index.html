@@ -67,9 +67,8 @@ html {
   }
 </style>
 <body>
-<h1>ISIS pyez topology</h1>
-<button onclick="update(false)">Update</button>
-<button onclick="update(true)">Update Extensive</button>
+<h1>OSPF pyez topology</h1>
+<button onclick="update()">Update</button>
 <span class="loading style-1" id="loading"></span>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -128,7 +127,7 @@ function draw(graph) {
       .enter().append("line")
       .attr("class", "link")
       .style("stroke", function(d) { 
-			if (d.status == "up"){
+			if (d.linktype == "PointToPoint"){
 				return "#000";
 			} else {
 				return "red";
@@ -152,8 +151,6 @@ function draw(graph) {
       .attr("dy", ".35em")
 	  .text(function(d) { return d.name });
 //	  .style("fill",function(d) { return color(d.group); });
-	  
-
 
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
@@ -171,12 +168,12 @@ function draw(graph) {
 
 function update(extensive = false){
 	document.getElementById("loading").style.display = "";
-	d3.select("svg").remove()
+	d3.select("svg").remove();
 	svg = d3.select("body").append("svg")
 		.attr("width", width)
 		.attr("height", height);	
 	var xmlhttp = new XMLHttpRequest();
-	var url = extensive ? "data?extensive" : "data";
+	var url = extensive ? "data/?extensive" : "data/";
 	xmlhttp.onreadystatechange=function() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        draw(JSON.parse(xmlhttp.responseText));

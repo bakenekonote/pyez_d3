@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^isis_d3/', include('isis_d3.urls')),
+    url(r'^ospf_d3/', include('ospf_d3.urls')),
     url(r'^admin/', admin.site.urls),
 ]
