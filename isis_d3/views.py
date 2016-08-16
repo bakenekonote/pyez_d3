@@ -5,9 +5,9 @@ from django.http import HttpResponse
 from django.template import loader
 import os
 
-junos_host = 'kdc-dc-mx480-2.kdc.jnpr.net'
-junos_user = 'coeadmin'
-junos_passwd = 'coeadmin'
+junos_host = '192.168.1.1'
+junos_user = 'username'
+junos_passwd = 'password'
 
 def data(request):
         dev = Device(host=junos_host, user=junos_user, passwd=junos_passwd)
